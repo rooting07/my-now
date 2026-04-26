@@ -1,0 +1,51 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "App user profile (customer or driver)",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "fullName": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["customer", "driver"] },
+        "vehicleType": { "type": "string", "enum": ["car", "tuk-tuk"] },
+        "vehicleModel": { "type": "string" },
+        "plateNumber": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "isVerified": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "fullName", "role"]
+    },
+    "Ride": {
+      "title": "Ride",
+      "description": "Taxi ride request",
+      "type": "object",
+      "properties": {
+        "customerId": { "type": "string" },
+        "driverId": { "type": "string" },
+        "pickup": { "type": "string" },
+        "destination": { "type": "string" },
+        "pickupCoord": { "type": "object" },
+        "destCoord": { "type": "object" },
+        "status": { "type": "string", "enum": ["requested", "accepted", "completed", "cancelled"] },
+        "price": { "type": "string" },
+        "serviceType": { "type": "string" },
+        "paymentMethod": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Collection of user profiles"
+    },
+    "rides/{rideId}": {
+      "schema": "Ride",
+      "description": "Collection of ride records"
+    }
+  }
+}

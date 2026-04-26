@@ -1,0 +1,8 @@
+{
+  "name": "CI TAXI",
+  "description": "تطبيق سي تكسي لطلب سيارات الأجرة الفاخرة والعادية بتصميم عصري وأنيق.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": []
+}
